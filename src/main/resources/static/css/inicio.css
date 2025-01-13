@@ -1,0 +1,65 @@
+/* Body (Fundo suave e centralização) */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a8edea, #fed6e3); /* Fundo suave */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha conteúdo no topo */
+    align-items: center;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Menu horizontal */
+.menu {
+    display: flex;
+    justify-content: center; /* Centraliza o menu */
+    background-color: #ffffff; /* Fundo branco */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #4CAF50; /* Verde */
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #4CAF50; /* Fundo verde no hover */
+    color: white; /* Texto branco no hover */
+}
+
+/* Botão de logout */
+button {
+    background: linear-gradient(135deg, #FF4500, #FFA500); /* Gradiente vermelho-laranja */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #E63900, #FF7F50); /* Tons mais escuros no hover */
+    transform: translateY(-2px); /* Efeito ao passar o mouse */
+}

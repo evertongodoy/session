@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Início</title>
+    <link rel="stylesheet" th:href="@{/css/inicio.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Bem-vindo</h2>
+
+    <!-- Menu Horizontal -->
+    <nav class="menu">
+        <a th:href="@{/pagina1}">Página 1</a>
+        <a th:href="@{/pagina2}">Página 2</a>
+        <a th:href="@{/pagina3}">Página 3</a>
+    </nav>
+
+    <!-- Botão de Logout -->
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+</body>
+</html>

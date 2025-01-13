@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página 2</title>
+    <link rel="stylesheet" th:href="@{/css/paginas.css}">
+</head>
+<body>
+<h2>Página 2</h2>
+<!--<button th:onclick="location.href='@{/inicio}'">Voltar</button>-->
+<form th:action="@{/inicio}" method="get">
+    <button type="submit">Voltar</button>
+</form>
+</body>
+</html>

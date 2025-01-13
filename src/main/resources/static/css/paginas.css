@@ -1,0 +1,41 @@
+/* Fundo suave */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a8edea, #fed6e3); /* Fundo suave */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Botão voltar */
+button {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32); /* Gradiente verde */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2E7D32, #1B5E20); /* Cor ao passar o mouse */
+    transform: translateY(-2px); /* Efeito ao passar o mouse */
+}
