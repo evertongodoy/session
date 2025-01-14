@@ -22,17 +22,26 @@ public class PageController {
     }
 
     @GetMapping("/pagina1")
-    public String pagina1() {
+    public String pagina1(HttpSession session, Model model) {
+        int sessionTimeout = session.getMaxInactiveInterval(); // Tempo de timeout da sessão em segundos
+        model.addAttribute("sessionTimeout", sessionTimeout); // Adiciona ao modelo
+        System.out.println("----> tempo do timeout " + sessionTimeout);
         return "pagina1";
     }
 
     @GetMapping("/pagina2")
-    public String pagina2() {
+    public String pagina2(HttpSession session, Model model) {
+        int sessionTimeout = session.getMaxInactiveInterval(); // Tempo de timeout da sessão em segundos
+        model.addAttribute("sessionTimeout", sessionTimeout); // Adiciona ao modelo
+        System.out.println("----> tempo do timeout " + sessionTimeout);
         return "pagina2";
     }
 
     @GetMapping("/pagina3")
-    public String pagina3() {
+    public String pagina3(HttpSession session, Model model) {
+        int sessionTimeout = session.getMaxInactiveInterval(); // Tempo de timeout da sessão em segundos
+        model.addAttribute("sessionTimeout", sessionTimeout); // Adiciona ao modelo
+        System.out.println("----> tempo do timeout " + sessionTimeout);
         return "pagina3";
     }
 

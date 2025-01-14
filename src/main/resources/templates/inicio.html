@@ -17,46 +17,19 @@
         <a th:href="@{/pagina3}">Página 3</a>
     </nav>
 
+    <!-- Novo Nav -->
+    <nav class="corpo">
+        <input type="text" placeholder="Grave algo em Cookies.." id="inputValue">
+        <button id="addButton">Adicionar</button>
+    </nav>
+
     <!-- Botão de Logout -->
     <form th:action="@{/logout}" method="post">
         <button type="submit">Logout</button>
     </form>
 </div>
 
-<!-- Script colocado no final do body -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Obtém o valor do timeout diretamente do atributo data-* no body
-        const bodyElement = document.querySelector("body");
-        const sessionTimeout = parseInt(bodyElement.getAttribute("data-session-timeout"), 10);
-
-        // Inicializa o tempo restante com o valor do timeout
-        let remainingTime = sessionTimeout;
-
-        function updateCountdown() {
-            if (remainingTime > 0) {
-                // Calcula minutos e segundos
-                const minutes = Math.floor(remainingTime / 60);
-                const seconds = remainingTime % 60;
-
-                // Atualiza o elemento HTML
-                document.getElementById("timeoutCountdown").textContent =
-                    `${minutes}m ${seconds}s`;
-
-                // Decrementa o tempo restante
-                remainingTime--;
-            } else {
-                // Quando o tempo expira, exibe mensagem
-                document.getElementById("timeoutCountdown").textContent = "Sessão expirada!";
-            }
-        }
-
-        // Atualiza o contador a cada segundo
-        setInterval(updateCountdown, 1000);
-
-        // Mostra o tempo inicial imediatamente
-        updateCountdown();
-    });
-</script>
+<!-- Script externo colocado no final do body -->
+<script src="/js/contador.js"></script>
 </body>
 </html>

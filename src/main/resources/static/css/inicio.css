@@ -63,3 +63,48 @@ button:hover {
     background: linear-gradient(135deg, #E63900, #FF7F50); /* Tons mais escuros no hover */
     transform: translateY(-2px); /* Efeito ao passar o mouse */
 }
+
+/* Estilos para o novo nav.corpo */
+nav.corpo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+}
+
+nav.corpo input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    flex: 1;
+    margin-right: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+nav.corpo input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+nav.corpo button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav.corpo button:hover {
+    background: linear-gradient(135deg, #388E3C, #66BB6A);
+    transform: translateY(-2px);
+}

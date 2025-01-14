@@ -4,11 +4,18 @@
     <title>Página 1</title>
     <link rel="stylesheet" th:href="@{/css/paginas.css}">
 </head>
-<body>
+<body th:attr="data-session-timeout=${sessionTimeout}">
 <h2>Página 1</h2>
+<p>Tempo restante para expiração da sessão: <span id="timeoutCountdown"></span></p>
+
+<!-- Formulário para voltar -->
 <!--<button th:onclick="location.href='@{/inicio}'">Voltar</button>-->
 <form th:action="@{/inicio}" method="get">
     <button type="submit">Voltar</button>
 </form>
+
+<!-- Script externo -->
+<script src="/js/contador.js"></script>
+
 </body>
 </html>
