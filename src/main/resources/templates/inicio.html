@@ -4,9 +4,11 @@
     <title>Início</title>
     <link rel="stylesheet" th:href="@{/css/inicio.css}">
 </head>
-<body>
+<body th:attr="data-session-timeout=${sessionTimeout}">
 <div class="container">
     <h2>Bem-vindo</h2>
+
+    <p>Tempo restante para expiração da sessão: <span id="timeoutCountdown"></span></p>
 
     <!-- Menu Horizontal -->
     <nav class="menu">
@@ -20,5 +22,41 @@
         <button type="submit">Logout</button>
     </form>
 </div>
+
+<!-- Script colocado no final do body -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Obtém o valor do timeout diretamente do atributo data-* no body
+        const bodyElement = document.querySelector("body");
+        const sessionTimeout = parseInt(bodyElement.getAttribute("data-session-timeout"), 10);
+
+        // Inicializa o tempo restante com o valor do timeout
+        let remainingTime = sessionTimeout;
+
+        function updateCountdown() {
+            if (remainingTime > 0) {
+                // Calcula minutos e segundos
+                const minutes = Math.floor(remainingTime / 60);
+                const seconds = remainingTime % 60;
+
+                // Atualiza o elemento HTML
+                document.getElementById("timeoutCountdown").textContent =
+                    `${minutes}m ${seconds}s`;
+
+                // Decrementa o tempo restante
+                remainingTime--;
+            } else {
+                // Quando o tempo expira, exibe mensagem
+                document.getElementById("timeoutCountdown").textContent = "Sessão expirada!";
+            }
+        }
+
+        // Atualiza o contador a cada segundo
+        setInterval(updateCountdown, 1000);
+
+        // Mostra o tempo inicial imediatamente
+        updateCountdown();
+    });
+</script>
 </body>
 </html>
