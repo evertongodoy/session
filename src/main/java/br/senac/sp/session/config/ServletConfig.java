@@ -9,6 +9,6 @@ public class ServletConfig {
 
     @Bean
     public ServletContextInitializer servletContextInitializer() {
-        return servletContext -> servletContext.setSessionTimeout(2);
+        return servletContext -> servletContext.setSessionTimeout(2); // 2 minutos
     }
 }
