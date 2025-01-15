@@ -11,7 +11,8 @@ body {
 
 /* Login container */
 .login-container {
-    background: #ffffff;
+    background: url('/images/img.png') no-repeat center center; /* Define a imagem como fundo */
+    background-size: cover; /* Ajusta a imagem para cobrir toda a div */
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
