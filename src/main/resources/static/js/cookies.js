@@ -5,14 +5,6 @@ function setCookie(name, value, maxAgeSeconds) {
 
 // Função para obter todos os cookies como um objeto
 function getAllCookies() {
-//    const cookies = {};
-//    document.cookie.split(';').forEach(cookie => {
-//        const [name, value] = cookie.split('=').map(c => c.trim());
-//        if (name && value) {
-//            cookies[name] = decodeURIComponent(value);
-//        }
-//    });
-//    return cookies;
     const cookies = {};
     document.cookie.split(';').forEach(cookie => {
         const [name, value] = cookie.split('=').map(c => c.trim());
@@ -23,6 +15,30 @@ function getAllCookies() {
     return cookies;
 }
 
+// Função para exibir o modal
+function showModal(message) {
+    const modal = document.getElementById('customModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const closeButton = document.querySelector('.close-button');
+
+    if (modal && modalMessage && closeButton) {
+        modalMessage.textContent = message; // Define a mensagem
+        modal.style.display = 'block'; // Mostra o modal
+
+        // Fecha o modal ao clicar no botão "X"
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Fecha o modal ao clicar fora dele
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+}
+
 // Evento para salvar cada palavra como um cookie
 document.addEventListener('DOMContentLoaded', function () {
     const addButton = document.getElementById('addButton');
@@ -30,33 +46,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (addButton) {
         addButton.addEventListener('click', function () {
-            if (inputValue && inputValue.value) {
+            if (inputValue && inputValue.value.trim() !== '') {
                 const uniqueKey = `word_${Date.now()}`; // Gera um nome único para cada cookie
                 setCookie(uniqueKey, inputValue.value, 3 * 60); // Salva com 3 minutos de validade
-                alert('Palavra adicionada ao cookie!');
+//                alert('Palavra adicionada ao cookie!');
+                showModal('Palavra adicionada ao cookie!'); // Exibe o modal
                 inputValue.value = ''; // Limpa o campo de entrada
             } else {
-                alert('Por favor, insira uma palavra.');
+//                alert('Por favor, insira uma palavra.');
+                showModal('Por favor, insira uma palavra.'); // Exibe o modal
             }
         });
     }
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-//    const cookieDisplay = document.getElementById('cookieDisplay');
-//    const cookies = getAllCookies();
-//
-//    // Filtra os cookies que começam com "word_"
-//    const words = Object.entries(cookies)
-//        .filter(([key, _]) => key.startsWith('word_'))
-//        .map(([_, value]) => value);
-//
-//    if (words.length > 0) {
-//        cookieDisplay.value = words.join('\n'); // Exibe as palavras no textarea
-//    } else {
-//        cookieDisplay.value = 'Nenhuma palavra encontrada nos cookies.';
-//    }
-const cookieDisplay = document.getElementById('cookieDisplay');
+    const cookieDisplay = document.getElementById('cookieDisplay');
 
     if (cookieDisplay) { // Garante que o textarea existe no DOM
         const cookies = getAllCookies();
