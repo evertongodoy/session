@@ -20,6 +20,22 @@ body {
     box-sizing: border-box;
 }
 
+/* Estilo para o <span> com o ID timeoutCountdown */
+#timeoutCountdown {
+    font-size: 20px; /* Tamanho da fonte para o contador */
+    color: red; /* Cor vermelha para chamar atenção */
+    font-weight: bold; /* Deixa o texto do contador em negrito */
+    margin-left: 10px; /* Espaço à esquerda do contador */
+    animation: blink 1s linear infinite; /* Efeito de piscar no texto do contador */
+}
+
+/* Animação de piscar */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
 /* Botão voltar */
 button {
     background: linear-gradient(135deg, #4CAF50, #2E7D32); /* Gradiente verde */

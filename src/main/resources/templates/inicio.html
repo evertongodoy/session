@@ -6,7 +6,7 @@
 </head>
 <body th:attr="data-session-timeout=${sessionTimeout}">
 <div class="container">
-    <h2>Bem-vindo</h2>
+    <h2>Bem-vindo, <span th:text="${usuarioLogado}"></span></h2>
 
     <p>Tempo restante para expiração da sessão: <span id="timeoutCountdown"></span></p>
 
