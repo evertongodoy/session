@@ -8,6 +8,9 @@
 <h2>Página 3</h2>
 <p>Tempo restante para expiração da sessão: <span id="timeoutCountdown"></span></p>
 
+<!-- TextArea para exibir os cookies -->
+<textarea id="cookieDisplay" rows="10" cols="50" readonly></textarea>
+
 <!--<button th:onclick="location.href='@{/inicio}'">Voltar</button>-->
 <form th:action="@{/inicio}" method="get">
     <button type="submit">Voltar</button>
@@ -15,6 +18,7 @@
 
 <!-- Script externo -->
 <script src="/js/contador.js"></script>
+<script src="/js/cookies.js"></script>
 
 </body>
 </html>

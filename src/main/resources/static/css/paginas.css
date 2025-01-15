@@ -39,3 +39,18 @@ button:hover {
     background: linear-gradient(135deg, #2E7D32, #1B5E20); /* Cor ao passar o mouse */
     transform: translateY(-2px); /* Efeito ao passar o mouse */
 }
+
+ /* Estilos para o textarea para combinar com o nav.corpo */
+#cookieDisplay {
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f4f4f4;
+    resize: none;
+    overflow: auto;
+    margin-bottom: 20px;
+}
