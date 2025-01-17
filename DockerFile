@@ -1,0 +1,91 @@
+# Use uma imagem base com o JDK 17
+FROM openjdk:17-jdk-slim
+
+# Defina o diretório de trabalho
+WORKDIR /app
+
+# Copie o arquivo pom.xml e as dependências do projeto
+COPY pom.xml .
+RUN mvn dependency:resolve
+
+# Copie o código-fonte do projeto
+COPY src ./src
+
+# Compile o projeto
+RUN mvn clean package -DskipTests
+
+# Exponha a porta que a aplicação irá utilizar
+EXPOSE 8081
+
+# Comando para executar a aplicação
+CMD ["java", "-jar", "target/session-0.0.1-SNAPSHOT.jar"]
+
+
+
+#
+# # Etapa 1: Build
+#
+# RUN echo "Step 1: Definindo a JDK"
+# # Use uma imagem base do JDK apropriada
+# FROM openjdk:21-jdk-slim
+#
+# # Defina o diretório de trabalho dentro do container
+# RUN echo "Step 2: Definindo local de trabalho"
+# WORKDIR /app
+#
+# # Copie os arquivos do projeto para o container
+# RUN echo "Step 3: Copiando JAR loteria-caixa-0.0.1-SNAPSHOT.jar"
+# COPY pom.xml ./
+# COPY src ./src
+# COPY target/loteria-caixa-0.0.1-SNAPSHOT.jar /app/loteria-caixa-0.0.1-SNAPSHOT.jar
+# RUN mvn clean package
+#
+# FROM openjdk:21-jdk-slim
+# WORKDIR /app
+# COPY --from=build /app/target/loteria-caixa-0.0.1-SNAPSHOT.jar ./loteria-caixa-0.0.1-SNAPSHOT.jar
+#
+# # Expõe a porta que sua aplicação vai usar
+# RUN echo "Step 4: Exposicao da porta 8080"
+# EXPOSE 8080
+#
+#
+# # Comando para executar sua aplicação
+# RUN echo "Step 5: Executando JAR"
+# CMD ["java", "-jar", "loteria-caixa-0.0.1-SNAPSHOT.jar"]
+
+
+#
+#
+#
+# # Use a base image
+# FROM maven:3.9-eclipse-temurin-21 as builder
+#
+# # Set working directory
+# WORKDIR /app
+#
+# # Print log messages during the build process
+# RUN echo "Step 1: Preparing the build environment"
+#
+# # Copy the pom.xml and log
+# COPY pom.xml ./
+# RUN echo "Step 2: Downloading dependencies"
+# RUN mvn dependency:go-offline -B
+#
+# # Copy source code and log
+# COPY src ./src
+# RUN echo "Step 3: Building the project"
+# RUN mvn clean package -DskipTests
+#
+# # Final runtime image
+# FROM eclipse-temurin:21-jre
+# WORKDIR /app
+#
+# # Copy the built JAR and log
+# COPY --from=builder /app/target/*.jar app.jar
+# RUN echo "Step 4: Preparing the runtime environment"
+#
+# # Print the final log message
+# RUN echo "Build process completed successfully!"
+#
+# # Set entrypoint
+# ENTRYPOINT ["java", "-jar", "app.jar"]
